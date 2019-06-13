@@ -40,7 +40,7 @@ print_dec: ;print numero em 0x7e00
  mov dx, 0; dx precisa ser zero pro comando div
 
 _pd_convert:     
- div bx                           ;extrai o dígito mais significativo de ax. o dígito fica em ax(al)
+ div bx                           ;extrai o dÃ­gito mais significativo de ax. o dÃ­gito fica em ax(al)
  mov cx, dx                       ;o resto fica em cx
  
 
@@ -61,13 +61,13 @@ _pd_continue:
  mov ax, bx; ax recebe 10 elevado a muito
  mov dx, 0; dx precisa ser 0 no comando div
  mov bx, 10;bx recebe 10
- div bx; agr dividimos bx/ax pra diminuir um zero. bx recebe depois.
+ div bx; agr dividimos bx/10 pra diminuir um zero. bx recebe depois.
  mov bx, ax
 
  mov ax, cx ;o resto tinha ficado em cx e agora volta pra ax
 
-or bx, bx ;checa se o divisor é zero
-jnz _pd_convert ;nao é zero. continua
+or bx, bx ;checa se o divisor Ã© zero
+jnz _pd_convert ;nao Ã© zero. continua
 
 pop dx
 pop cx
@@ -80,7 +80,7 @@ ret
 printEspaco:
 push ax
 
-mov al, 0x20; espaço
+mov al, 0x20; espaÃ§o
 mov ah, 0x0e
 int 0x10
 
